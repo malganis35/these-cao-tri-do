@@ -3,3 +3,4 @@ _build/
 _templates/
 build/
 *.Identifier
+.python-version
