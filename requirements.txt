@@ -12,4 +12,3 @@ sphinx-favicon
 nbsphinx
 pandoc
 wheel
-

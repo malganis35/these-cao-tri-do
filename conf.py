@@ -29,7 +29,6 @@ author = 'Cao Tri DO'
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
-    # 'sphinx.ext.autosectionlabel',
     'sphinx.ext.autosummary',
     'sphinx.ext.graphviz',
     'sphinx.ext.inheritance_diagram',

@@ -20,8 +20,8 @@ The graph below gives an overview of the interactions between some **Atlas servi
           hub(Hub)---hub_db[(Hub Database)]
           hub---hub_fs[(Document Storage)]
         end
-        subgraph Mazars
-          thegate(TheGate)-- SSO ---webapp
+        subgraph Astraviz
+          thegate(Gate)-- SSO ---webapp
           thegate-- Token Verification ---api
           dms(DMS)-- HTTP ---api
           dms-- HTTP ---hub
@@ -45,8 +45,8 @@ The graph below gives an overview of the interactions between some **Atlas servi
             hub(Hub)---hub_db[(Hub Database)]
             hub---hub_fs[(Document Storage)]
           end
-          subgraph Mazars
-            thegate(TheGate)-- SSO ---webapp
+          subgraph Astraviz
+            thegate(Gate)-- SSO ---webapp
             thegate-- Token Verification ---api
             dms(DMS)-- HTTP ---api
             dms-- HTTP ---hub
@@ -62,36 +62,36 @@ Serious software should consume his own API REST or GraphQL, this API should
 has to be correctly documented in term of **sequenceDiagram** including the
 Token security layer.
 
-.. tab:: A real life MazarsR&D sequenceDiagram
+.. tab:: Astraviz sequenceDiagram
 
   .. mermaid::
 
     sequenceDiagram
 
-      AtlasBlue ->>+ TheGate: Request Access token
-      TheGate -->>- AtlasBlue: Access Token
-      AtlasBlue ->>+ API Gateway: api/engagements/webhook + Access Token
-      API Gateway ->>+ TheGate: Validate token
-      TheGate -->>- API Gateway: Token information
+      App1 ->>+ Gate: Request Access token
+      Gate -->>- App1: Access Token
+      App1 ->>+ API Gateway: api/engagements/webhook + Access Token
+      API Gateway ->>+ Gate: Validate token
+      Gate -->>- API Gateway: Token information
       alt Token is valid
           API Gateway->> API Gateway: Identify consumer
       else Token is invalid or consumer is unknown
-          API Gateway-->> AtlasBlue: Not Authorized
+          API Gateway-->> App1: Not Authorized
       end
-      API Gateway->>+ Anablue: Forward api/engagements/webhook + Access Token
-      Anablue ->>+ TheGate: Validate token
-      TheGate -->>- Anablue: Token information
+      API Gateway->>+ App2: Forward api/engagements/webhook + Access Token
+      App2 ->>+ Gate: Validate token
+      Gate -->>- App2: Token information
       alt Token is valid
-          Anablue ->> Anablue: Authorize consumer
-          Anablue -->> API Gateway: Response payload (ACK/NACK)
-          API Gateway-->> AtlasBlue: Forward Response payload (ACK/NACK)
-          Anablue ->> Anablue: Execute request
+          App2 ->> App2: Authorize consumer
+          App2 -->> API Gateway: Response payload (ACK/NACK)
+          API Gateway-->> App1: Forward Response payload (ACK/NACK)
+          App2 ->> App1: Execute request
       else Token is invalid or consumer is unknown
-          Anablue -->>- API Gateway: Not Authorized
-          API Gateway-->>- AtlasBlue: Not Authorized
+          App2 -->>- API Gateway: Not Authorized
+          API Gateway-->>- App2: Not Authorized
       end
 
-.. tab:: MazarsR&D sequenceDiagram only 23 lines of low code ;)
+.. tab:: Astraviz sequenceDiagram only 23 lines of low code ;)
 
   .. code::
 
@@ -99,27 +99,27 @@ Token security layer.
 
       sequenceDiagram
 
-        AtlasBlue ->>+ TheGate: Request Access token
-        TheGate -->>- AtlasBlue: Access Token
+        App2 ->>+ Gate: Request Access token
+        Gate -->>- App2: Access Token
         AtlasBlue ->>+ API Gateway: api/engagements/webhook + Access Token
-        API Gateway ->>+ TheGate: Validate token
-        TheGate -->>- API Gateway: Token information
+        API Gateway ->>+ Gate: Validate token
+        Gate -->>- API Gateway: Token information
         alt Token is valid
             API Gateway->> API Gateway: Identify consumer
         else Token is invalid or consumer is unknown
-            API Gateway-->> AtlasBlue: Not Authorized
+            API Gateway-->> App2: Not Authorized
         end
-        API Gateway->>+ Anablue: Forward api/engagements/webhook + Access Token
-        Anablue ->>+ TheGate: Validate token
-        TheGate -->>- Anablue: Token information
+        API Gateway->>+ App2: Forward api/engagements/webhook + Access Token
+        App2 ->>+ Gate: Validate token
+        Gate -->>- App2: Token information
         alt Token is valid
-            Anablue ->> Anablue: Authorize consumer
-            Anablue -->> API Gateway: Response payload (ACK/NACK)
-            API Gateway-->> AtlasBlue: Forward Response payload (ACK/NACK)
-            Anablue ->> Anablue: Execute request
+            App2 ->> App2: Authorize consumer
+            App2 -->> API Gateway: Response payload (ACK/NACK)
+            API Gateway-->> App2: Forward Response payload (ACK/NACK)
+            App2 ->> App2: Execute request
         else Token is invalid or consumer is unknown
-            Anablue -->>- API Gateway: Not Authorized
-            API Gateway-->>- AtlasBlue: Not Authorized
+            App2 -->>- API Gateway: Not Authorized
+            API Gateway-->>- App2: Not Authorized
         end
 
 Gantt Diagram

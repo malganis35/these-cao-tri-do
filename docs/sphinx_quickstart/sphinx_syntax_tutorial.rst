@@ -46,7 +46,7 @@ tabs images and code
 --------------------
 .. tab:: Tab with an image
 
-   .. image:: /docs/sphinx_quickstart/sphinx_syntax_tutorial/mazars_logo.png
+   .. image:: /docs/sphinx_quickstart/sphinx_syntax_tutorial/logo_Destination-Familles-favicon.png
       :width: 400px
 
 .. tab:: Tab with some code
