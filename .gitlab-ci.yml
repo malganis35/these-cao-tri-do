@@ -13,6 +13,13 @@ build_docs:
   stage: build
   script:
     - sphinx-build -b html ./ public_tmp/
+  artifacts:
+    paths:
+      - public_tmp
+
+pages:
+  stage: deploy
+  script:
     - mv public_tmp public
     - echo "Documentation deployed" > public/deploy.txt
   artifacts:
