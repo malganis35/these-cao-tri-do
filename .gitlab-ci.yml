@@ -11,12 +11,13 @@ before_script:
   - pip install Sphinx sphinx-rtd-theme
 
 build_docs:
-  stage: build
+  stage: deploy
   script:
-    - sphinx-build -b html ./ public_tmp/
+    - sphinx-build -b html ./ public/
+    - echo "Documentation deployed" > public/deploy.txt
   artifacts:
     paths:
-      - public_tmp
+      - public
 
 pages:
   stage: deploy
