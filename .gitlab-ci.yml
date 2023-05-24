@@ -18,14 +18,3 @@ build_docs:
   artifacts:
     paths:
       - public
-
-pages:
-  stage: deploy
-  script:
-    - mv public_tmp public
-    - echo "Documentation deployed" > public/deploy.txt
-  artifacts:
-    paths:
-      - public
-  only:
-    - master
