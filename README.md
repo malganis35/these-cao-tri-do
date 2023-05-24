@@ -1,3 +1,4 @@
+# Sphinx Template
 ![Build Status](https://img.shields.io/badge/Made%20with-Sphinx-1f425f.svg)
 
 ![Build Status](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
@@ -5,7 +6,6 @@
 ![Build Status](https://img.shields.io/badge/GitLab-330F63?style=for-the-badge&logo=gitlab&logoColor=white)
 ![Build Status](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)
 
-# Sphinx Template
 
 ## Description
 Example sphinx documentation website using GitLab Pages, containing a quick starting tutorial on Sphinx to learn the main commands.
