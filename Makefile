@@ -38,4 +38,10 @@ dev_install:
 	pyenv virtualenv sphinxtmp
 	pyenv local sphinxtmp
 	pip install -r requirements.txt
-	
+
+update:
+	pip install -r requirements.txt
+
+clean:
+	@echo "Delete _build directory"
+	rm -r "$(BUILDDIR)"
