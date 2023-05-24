@@ -1,4 +1,5 @@
 furo
+sphinx-book-theme
 sphinx
 sphinx-copybutton
 sphinx-last-updated-by-git
