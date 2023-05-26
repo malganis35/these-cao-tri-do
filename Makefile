@@ -35,8 +35,8 @@ setup_venv_with_pyenv:
 
 dev_install:
 	@echo "For Ubuntu Laptops"
-	pyenv virtualenv sphinxtmp
-	pyenv local sphinxtmp
+	pyenv virtualenv thesis
+	pyenv local thesis
 	pip install -r requirements.txt
 
 update:
