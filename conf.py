@@ -17,7 +17,7 @@ from datetime import date
 
 # -- Project information -----------------------------------------------------
 
-project = 'Sphinx Template Website'
+project = 'Cao Tri DO PhD'
 copyright = f'{date.today().year}, Cao Tri DO'
 author = 'Cao Tri DO'
 

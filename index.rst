@@ -3,8 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to the Astraviz Sphinx Template
-==========================================
+Multi-modal and multi-scale temporal metric learning for robust nearest neighbors classification
+=================================================================================================
 
 .. image:: /docs/astraviz_banner.jpg
    :width: 500px
