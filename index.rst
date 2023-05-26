@@ -15,6 +15,18 @@ Welcome to the Astraviz Sphinx Template
    :caption: Contents:
 
 .. toctree::
+   :caption: Introduction
+   :maxdepth: 2
+
+   /docs/introduction/introduction.rst
+
+.. toctree::
+   :caption: Chapter 1: Related work
+   :maxdepth: 2
+
+   /docs/related_work/related_work.rst
+
+.. toctree::
    :caption: Tuto Basics
    :maxdepth: 1
 
