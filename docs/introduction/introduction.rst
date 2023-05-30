@@ -1,9 +1,10 @@
+===================
 Introdution
 ===================
 
 
 Motivation
--------------------
+===================
 The work of this PhD is in the context of a CIFRE1 thesis with Schneider Electric and two
 public research laboratories, LIG2 and GIPSA-lab3. Within Schneider Electric, the PhD took
 place in the Analytics for Solutions (A4S) team, part of the Technology and Strategy entity.
@@ -25,7 +26,7 @@ temporal aspect (i.e., order of appearance of the observations) is an additional
 
 
 Problem statement and contributions
----------------------------------------------
+======================================
 In this work, we focus on classification problems of monovariate time series (data of 1 di-
 mension) with a fixed sampling rate and of same fixed lengths. Among the wide variety of
 algorithms that exist in machine learning, some approaches (e.g., k-Nearest Neighbors (k-
@@ -54,7 +55,7 @@ metric for a robust k-NN classifier. The main contributions of the PhD are:
 
 
 Organization of the manuscript
-----------------------------------------------------------
+======================================
 The first part makes a review of existing methods in machine learning and metrics for time
 series. The first chapter presents classical approaches in machine learning. We recall the
 general principle and framework in supervised learning and focus on two machine learning

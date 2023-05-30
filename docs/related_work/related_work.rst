@@ -1,5 +1,10 @@
-Related work
+Chapter 1: Related work
 ============================
+
+.. toctree::
+   :maxdepth: 2
+   
+   /docs/related_work/related_work.rst
 
 .. admonition:: Summary
    :class: hint
