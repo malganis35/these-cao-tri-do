@@ -15,7 +15,6 @@ Multi-modal and multi-scale temporal metric learning for robust nearest neighbor
    :caption: Contents:
 
 .. toctree::
-   .. contents::
    :maxdepth: 2
    :caption: Introduction
 
@@ -23,9 +22,16 @@ Multi-modal and multi-scale temporal metric learning for robust nearest neighbor
 
 .. toctree::
    :maxdepth: 2
-   :caption: Bibliography
+   :caption: State of the art
    
    /docs/related_work/related_work.rst
+
+.. toctree::
+   :maxdepth: 2
+   :caption: State of the art
+   
+   /docs/bibliography/bibliography.rst
+
 
 .. toctree::
    :caption: Tuto Basics

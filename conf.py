@@ -42,6 +42,7 @@ extensions = [
     'sphinx_last_updated_by_git',
     'sphinx.ext.autosectionlabel',
     'sphinx.ext.intersphinx',
+    'sphinxcontrib.bibtex',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -60,6 +61,9 @@ language = 'en'
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 
                     '*/README.rst', 'README.rst', '**.ipynb_checkpoints']
 
+# Bibtex file
+bibtex_bibfiles = ['references.bib']
+
 
 # -- Options for HTML output -------------------------------------------------
 
@@ -69,6 +73,13 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store',
 # html_theme = 'alabaster'
 # html_theme = 'furo'
 html_theme = 'sphinx_book_theme'
+
+html_theme_options = {
+                    "repository_url": "https://gitlab.com/do-favier/these-cao-tri-do",
+                    "use_repository_button": True,
+                    # "use_issues_button": True,
+                    "use_edit_page_button": True,
+                    }
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

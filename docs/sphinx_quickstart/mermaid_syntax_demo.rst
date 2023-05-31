@@ -199,7 +199,7 @@ Gantt Diagram
           Workpaper Excel      :active, ex_4,  after fsa_4, 2w
 
 
-Bibliography
+References
 =============
 
 - https://mermaid-js.github.io/mermaid/#/flowchart
