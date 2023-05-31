@@ -107,3 +107,6 @@ favicons = [
 
 
 html_use_index = True
+
+# numerotation of figures
+numfig = True
