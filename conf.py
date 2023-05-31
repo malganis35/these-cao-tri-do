@@ -110,3 +110,36 @@ html_use_index = True
 
 # numerotation of figures
 numfig = True
+
+# source : https://github.com/sphinx-doc/sphinx/issues/10540#issuecomment-1159757219
+latex_elements = {
+    'tableofcontents': r"""
+\sphinxtableofcontents
+\listoffigures
+""",
+    'preamble' : r"""
+\AtBeginDocument{% delay for maximal safety
+    \newcommand\originalcaption{}% make sure  name does not exist
+    \let\originalcaption\caption
+    \let\caption\myhackedcaption
+}%
+\newcommand\myhackedcaption{}% make sure  name does not exist
+\newcommand\setupshortcaption{}%       idem
+\newcommand\singleusageshortcaption{}% idem
+\newcommand\myshortcaptiontrue{}%      idem
+%
+% define the apparatus to replace \caption
+%
+\newif\ifmyshortcaption
+\def\setupshortcaption#1{\def\singleusageshortcaption{#1}%
+                             \global\myshortcaptiontrue}%
+\makeatletter
+\def\myhackedcaption{% replacement for \caption
+    \ifmyshortcaption\global\myshortcaptionfalse\expandafter
+    \@firstoftwo\else\expandafter\@secondoftwo\fi
+    {\originalcaption[\singleusageshortcaption]}%
+    {\originalcaption}%
+}%
+\makeatother
+""",
+}
