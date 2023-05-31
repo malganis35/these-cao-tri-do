@@ -3,7 +3,7 @@ Bibliography
 ============================
 
 .. bibliography:: 
-   :list: enumerated
+
    
    
 

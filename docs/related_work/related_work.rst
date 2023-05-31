@@ -1,5 +1,9 @@
+============================
 Chapter 1: Related work
 ============================
+
+.. toctree::
+   :maxdepth: 2
 
 .. admonition:: Summary
    :class: hint
@@ -11,14 +15,14 @@ Chapter 1: Related work
 
 
 1.1 Classification Regression
-----------------------------------------
+=========================================
 
 In this section, we review some terminology used in machine learning. First, we recall the
 principle of machine learning. Then, we detail how to design a framework for supervised
 learning. After that, we present model evaluation. Finally, we review data normalization.
 
 1.1.1 Machine learning principle
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+----------------------------------------
 
 The idea of machine learning (also known as pattern learning or pattern recognition) is to
 imitate with algorithms executed on computers, the ability of living beings to learn from
@@ -48,19 +52,19 @@ and unsupervised learning problems are out of the scope of this work.
 
 
 1.1.2 Model selection in supervised learning
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+--------------------------------------------------
 
-A key objective of supervised learning algorithms is to build models f with good generalization
-capabilities, i.e., models f that correctly predict the labels yj of new unknown samples xj .
-There exist two types of errors committed by a classification or regression model f: training
+A key objective of supervised learning algorithms is to build models $f$ with good generalization
+capabilities, *i.e.*, models f that correctly predict the labels :math:`y_j` of new unknown samples :math:`(\textbf{x}_j`.
+There exist two types of errors committed by a classification or regression model $f$: training
 error and generalization error. Training error is the error on the training set and generalization 
-error is the error on the testing set. A good supervised model f must not only
-fit the training data X well, it must also accurately classify records it has never seen before
-(test set XT est). In other words, a good model f must have low training error as well as
+error is the error on the testing set. A good supervised model $f$ must not only
+fit the training data $X$ well, it must also accurately classify records it has never seen before
+(test set :math:`X_{Test}`). In other words, a good model $f$ must have low training error as well as
 low generalization error. This is important because a model that fits the training data too
 much can have a poorer generalization error than a model with a higher training error. Such
-situation is known as model overfitting (Fig. 1.1). In general, the complexity in learning can
-be measured through 2 measures: the information complexity and the computational complexity. 
+situation is known as model overfitting (:numref:`Overfitting`). In general, the complexity in learning can
+be measured through 2 measures: the **information complexity** and the **computational complexity**. 
 The information complexity concerns the generalization performances of the learner:
 how many samples are needed? How much time the learner will take to converge to its optimal
 solution? Etc. The computational complexity deals with the computational resources needed
@@ -70,16 +74,77 @@ could consist in trying all the possible combinations of hyper-parameters values
 one with the lowest training error. However, as discussed above, the model with the lowest
 training error is not always the one with the best generalization error. To avoid overfitting,
 the training set can be divided into 2 sets: a learning and a validation set. Suppose that we
-have two hyper-parameters to tune: C and γ. We make a grid search for each combination
-(C, γ) of the hyper-parameters, that is in this case a 2-dimensional grid (Fig. :ref:`Overfitting`). For each
+have two hyper-parameters to tune: $C$ and $γ$. We make a grid search for each combination
+($C$, $γ$) of the hyper-parameters, that is in this case a 2-dimensional grid (:numref:`Overfitting`). For each
 combination (a cell of the grid), the model is learned on the learning set and evaluated on the
 validation set. At the end, the hyper-parameters with the lowest error on the validation set are
-retained and the model f is learned on all training data using these optimal hyper-parameters.
+retained and the model $f$ is learned on all training data using these optimal hyper-parameters.
 This process is referred to as the model selection.
 
 .. _Overfitting:
 
 .. figure:: /docs/related_work/images/Overfitting.png
    :width: 300px
+   :align: center
    
    An example of overfitting in the case of classification. The objective is to separate blue points from red points. Black line shows a classifier $f_1$ with low complexity where as green line illustrates a classifier $f_2$ with high complexity. On training examples (blue and red points), the model $f_2$ separates all the classes perfectly but may lead to poor generalization on new unseen examples. Model $f_1$ is often preferred.
+
+
+In most cases, learning algorithms require to tune some hyper-parameters. A first approach could 
+consist in trying all the possible combinations of hyper-parameters values and keep the one with 
+the lowest training error. However, as discussed above, the model with the lowest training error 
+is not always the one with the best generalization error. To avoid overfitting, the training set 
+can be divided into 2 sets: a learning and a validation set. Suppose that we have two hyper-parameters 
+to tune: $C$ and $γ$. We make a grid search for each combination $(C,γ)$ of the hyper-parameters, 
+that is in this case a 2-dimensional grid (:numref:`GridSearch`). For each combination (a cell of 
+the grid), the model is learned on the learning set and evaluated on the validation set. At the end, 
+the hyper-parameters with the lowest error on the validation set are retained and the model $f$ is 
+learned on all training data using these optimal hyper-parameters. This process is referred to as 
+the **model selection**. 
+
+.. _GridSearch:
+
+.. figure:: /docs/related_work/images/GridSearch.png
+   :width: 250px
+	
+   Example of a 2 dimensional grid search for parameters $C$ and $γ$. 
+   It defines a grid where each cell of the grid contains a combination 
+   ($C$, $γ$). Each combination is used to learn the model and is evaluated 
+   on the validation set.
+
+An alternative is **cross-validation** with $v$ folds, illustrated in 
+:numref:`Cross_validation2`. In this approach, we partition the training data into 
+$v$ equal-sized subsets. The objective is to evaluate the error for each combination of 
+hyper-parameters. For each run, one fold is chosen for validation, while the $v-1$ remaining 
+folds are used as the learning set. We repeat the process for each fold, thus $v$ times. 
+Each fold gives one validation error and thus we obtain $v$ errors. The total error for the 
+current combination of hyper-parameters is obtained by summing up the errors for all $v$ folds. 
+When $v=n$, the size of training set, this approach is called leave-one-out or Jackknife. 
+Each test set contains only one sample. The advantage is that as much data as possible are used 
+for training. Moreover, the validation sets are exclusive and they cover the entire data set. 
+The drawback is that it is computationally expensive to repeat the procedure $n$ times. Furthermore, 
+since each validation set contains only one record, the variance of the estimated performance metric 
+is usually high. This procedure is often used when $n$, the size of the training set, is small. 
+There exist other methods such as sub-sampling or bootstrap :cite:`Duda1973,Dreyfus2006`. We only 
+use cross-validation in our experiments.
+
+.. _Cross_validation2:
+
+.. figure:: /docs/related_work/images/Cross_validation2.jpg
+   :width: 800px
+
+   $v$-fold Cross-validation for one combination of parameters. For each of $v$ experiments, 
+   use $v-1$ folds for training and a different fold for Testing, then the training error for 
+   this combination of parameter is the mean of all testing errors. This procedure is 
+   illustrated for $v=4$
+
+
+.. figure:: /docs/related_work/images/LearningFramework.png
+   :width: 800px
+	
+   General framework for building a supervised (classification/regression) model. Example with 3 features and 2 classes ('Yes' and 'No')
+
+.. figure:: /docs/related_work/images/Dataset.png
+   :width: 800px
+
+   Division of a dataset into 3 datasets: training, test and operational
