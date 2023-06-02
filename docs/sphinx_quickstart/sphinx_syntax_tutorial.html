@@ -1,0 +1,769 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <link href="../../_static/logo_Destination-Familles-favicon.png" sizes="512x512" rel="icon" type="image/png">
+    <title>Sphinx Syntax Tutorial &#8212; Cao Tri DO PhD</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/tabs.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/sphinx_quickstart/sphinx_syntax_tutorial';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Files organisation" href="file_organisation.html" />
+    <link rel="prev" title="Sphinx Intro" href="sphinx_quickstart.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Cao Tri DO PhD</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../contents/Aknowledgement.html">Aknowledgement</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/introduction.html">Introdution</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">State of the art</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../related_work/related_work.html">Chapter 1: Related work</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../references/references.html">Bibliography</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tuto Basics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Sphinx Quick Start</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="sphinx_quickstart.html">Sphinx Intro</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Sphinx Syntax Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file_organisation.html">Files organisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mermaid_syntax_demo.html">Illustrate Mermaid Diagrams</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-gitlab"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://gitlab.com/do-favier/these-cao-tri-do" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-gitlab"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://gitlab.com/do-favier/these-cao-tri-do/-/edit/main/docs/sphinx_quickstart/sphinx_syntax_tutorial.rst" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/docs/sphinx_quickstart/sphinx_syntax_tutorial.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Sphinx Syntax Tutorial</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paragraphs-and-notes">Paragraphs and notes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tabs-images-and-code">tabs images and code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tables">Tables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#some-maths">Some maths</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#links">Links</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#external-links">External Links</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#links-to-rst-with-doc">Links to rst with :doc:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#links-to-a-specific-chapter-with-ref">Links to a specific Chapter with :ref:</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="sphinx-syntax-tutorial">
+<h1>Sphinx Syntax Tutorial<a class="headerlink" href="#sphinx-syntax-tutorial" title="Permalink to this heading">#</a></h1>
+<p>We use <em>restructuredtext</em> aka <strong>rst</strong> syntax to document our project with Sphinx</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html">rst online ressources</a></p></li>
+</ul>
+<section id="paragraphs-and-notes">
+<h2>Paragraphs and notes<a class="headerlink" href="#paragraphs-and-notes" title="Permalink to this heading">#</a></h2>
+<div class="tab-set docutils container">
+<input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--1">Paragraphs and Notes</label><div class="tab-content docutils container">
+<p>This is a paragraph.</p>
+<p>Paragraphs line up at their left edges, and are normally separated by blank
+lines.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can decorate a block as a <strong>note</strong></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Or as a <strong>warning</strong>, please try <em>attention</em>, <em>caution</em>, <em>danger</em>,
+<em>error</em>, <em>hint</em>, <em>important</em> and <em>tip</em> too.</p>
+</div>
+</div>
+<input class="tab-input" id="tab-set--0-input--2" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--2">Paragraphs and Notes – code</label><div class="tab-content docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>This is a paragraph.
+
+Paragraphs line up at their left edges, and are normally separated by blank
+lines.
+
+.. note::
+
+   You can decorate a block as a **note**
+
+.. warning::
+
+   Or as a **warning**, please try *attention*, *caution*, *danger*,
+   *error*, *hint*, *important* and *tip* too.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="tabs-images-and-code">
+<h2>tabs images and code<a class="headerlink" href="#tabs-images-and-code" title="Permalink to this heading">#</a></h2>
+<div class="tab-set docutils container">
+<input checked="True" class="tab-input" id="tab-set--1-input--1" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--1">Tab with an image</label><div class="tab-content docutils container">
+<a class="reference internal image-reference" href="../../_images/logo_Destination-Familles-favicon.png"><img alt="../../_images/logo_Destination-Familles-favicon.png" src="../../_images/logo_Destination-Familles-favicon.png" style="width: 400px;" /></a>
+</div>
+<input class="tab-input" id="tab-set--1-input--2" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--2">Tab with some code</label><div class="tab-content docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fibs</span><span class="p">():</span>
+<span class="w">   </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   This code does not work ;)</span>
+<span class="sd">   &quot;&quot;&quot;</span>
+   <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+   <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span>
+   <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+       <span class="k">yield</span> <span class="n">a</span>
+       <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--1-input--3" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--3">How to create this tabs ?</label><div class="tab-content docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>.. tab:: Tab with an image
+
+   .. image:: /src/images/logo_mazars.png
+      :width: 400px
+
+.. tab:: Tab with some code
+
+   .. code:: python
+
+     def fibs():
+        &quot;&quot;&quot;
+        This code does not work ;)
+        &quot;&quot;&quot;
+        a = 0
+        b = 1
+        while True:
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="tables">
+<h2>Tables<a class="headerlink" href="#tables" title="Permalink to this heading">#</a></h2>
+<table class="table">
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 10%" />
+<col style="width: 60%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Queue</p></th>
+<th class="head"><p>Nb</p></th>
+<th class="head"><p>Details</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>big_jobs_few_tasks</p></td>
+<td><p>2</p></td>
+<td><p>Non igitur potestis voluptate omnia dirigentes</p></td>
+</tr>
+<tr class="row-odd"><td><p>small_jobs_many_tasks</p></td>
+<td><p>10</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="tab-set docutils container">
+<input checked="True" class="tab-input" id="tab-set--2-input--1" name="tab-set--2" type="radio"><label class="tab-label" for="tab-set--2-input--1">Generic Table (<strong>list-table</strong> the best/simpler syntax)</label><div class="tab-content docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>.. list-table::
+   :widths: 30 20 50
+   :header-rows: 1
+   :stub-columns: 0
+
+   * - Queue
+     - Nb
+     - Details
+   * - big_jobs_few_tasks
+     - 2
+     - Non igitur potestis voluptate omnia dirigentes
+   * - small_jobs_many_tasks
+     - 10
+     -
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--2-input--2" name="tab-set--2" type="radio"><label class="tab-label" for="tab-set--2-input--2">Table (an alternative syntax)</label><div class="tab-content docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>+-----------------------+----+-----------------------------------+
+| Queue                 | Nb | Details                           |
++=======================+====+===================================+
+| big_jobs_few_tasks    | 2  | Non igitur potestis               |
+|                       |    | voluptate omnia dirigentes        |
++-----------------------+----+-----------------------------------+
+| small_jobs_many_tasks | 10 |                                   |
++-----------------------+----+-----------------------------------+
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="some-maths">
+<h2>Some maths<a class="headerlink" href="#some-maths" title="Permalink to this heading">#</a></h2>
+<p>Just to play with maths: <span class="math notranslate nohighlight">\(\sigma (x) = \frac{1}{1 + e^{-1}}\)</span>, Sigmoid
+function used in word2vec model</p>
+<div class="tab-set docutils container">
+<input checked="True" class="tab-input" id="tab-set--3-input--1" name="tab-set--3" type="radio"><label class="tab-label" for="tab-set--3-input--1">Sigmoid Math</label><div class="tab-content docutils container">
+<div class="math notranslate nohighlight">
+\[\sigma (x) = \frac{1}{1 + e^{-1}}\]</div>
+</div>
+<input class="tab-input" id="tab-set--3-input--2" name="tab-set--3" type="radio"><label class="tab-label" for="tab-set--3-input--2">Maths (use Tex notation)</label><div class="tab-content docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>.. math::
+
+   \sigma (x) = \frac{1}{1 + e^{-1}}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="links">
+<h2>Links<a class="headerlink" href="#links" title="Permalink to this heading">#</a></h2>
+<section id="external-links">
+<h3>External Links<a class="headerlink" href="#external-links" title="Permalink to this heading">#</a></h3>
+<div class="tab-set docutils container">
+<input checked="True" class="tab-input" id="tab-set--4-input--1" name="tab-set--4" type="radio"><label class="tab-label" for="tab-set--4-input--1">External Links</label><div class="tab-content docutils container">
+<ul class="simple">
+<li><p>To link to an <strong>external URL</strong> just write the URL sphinx will detect it as a link:
+: e.g. <code class="docutils literal notranslate"><span class="pre">https://www.mazars.com</span></code>:  <a class="reference external" href="https://www.mazars.com">https://www.mazars.com</a></p>
+<ul>
+<li><p>If you want to name the link use the <code class="docutils literal notranslate"><span class="pre">`LINK</span> <span class="pre">NAME</span> <span class="pre">&lt;URL&gt;`__</span></code> pattern (write <em>LINK
+NAME &lt;URL&gt;</em> inside backquotes ending with double underscores) e.g. like
+<a class="reference external" href="https://www.mazars.com">Mazars</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<input class="tab-input" id="tab-set--4-input--2" name="tab-set--4" type="radio"><label class="tab-label" for="tab-set--4-input--2">External Links – code</label><div class="tab-content docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- To link to an **external URL** just write the URL sphinx will detect it as a link:
+  : e.g. ``https://www.mazars.com``:  https://www.mazars.com
+
+  - If you want to name the link use the ```LINK NAME &lt;URL&gt;`__`` pattern (write *LINK
+    NAME &lt;URL&gt;* inside backquotes ending with double underscores) e.g. like
+    `Mazars &lt;https://www.mazars.com&gt;`__
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="links-to-rst-with-doc">
+<h3>Links to rst with :doc:<a class="headerlink" href="#links-to-rst-with-doc" title="Permalink to this heading">#</a></h3>
+<div class="tab-set docutils container">
+<input checked="True" class="tab-input" id="tab-set--5-input--1" name="tab-set--5" type="radio"><label class="tab-label" for="tab-set--5-input--1">links to rst with :doc:</label><div class="tab-content docutils container">
+<ul>
+<li><p>To link to <strong>some other rst document</strong> we use the <code class="docutils literal notranslate"><span class="pre">:doc:</span></code> role followed by
+path to rst file (without <code class="docutils literal notranslate"><span class="pre">.rst</span></code>) into backquotes:
+<code class="docutils literal notranslate"><span class="pre">:doc:`/src/path/to_the_rst_file`</span></code> e.g.
+<a class="reference internal" href="file_organisation.html"><span class="doc">Files organisation</span></a></p>
+<ul>
+<li><p>We can rename the link as <code class="docutils literal notranslate"><span class="pre">LINK</span> <span class="pre">NAME</span></code> with the same pattern as external URLs:
+<code class="docutils literal notranslate"><span class="pre">:doc:`LINK</span> <span class="pre">NAME</span> <span class="pre">&lt;/src/path/to_the_rst_file&gt;`</span></code> e.g. <a class="reference internal" href="file_organisation.html"><span class="doc">File structure</span></a></p></li>
+<li><div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>For <code class="docutils literal notranslate"><span class="pre">:doc:</span></code> role, the link to e.g. <code class="docutils literal notranslate"><span class="pre">file_organisation.rst</span></code> has to start by
+an absolute path starting with a slash <code class="docutils literal notranslate"><span class="pre">/src/sphinx_tutorial/...</span></code> and should
+not have the <code class="docutils literal notranslate"><span class="pre">.rst</span></code> extention</p>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<input class="tab-input" id="tab-set--5-input--2" name="tab-set--5" type="radio"><label class="tab-label" for="tab-set--5-input--2">links to rst with :doc: – code</label><div class="tab-content docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- To link to **some other rst document** we use the ``:doc:`` role followed by
+  path to rst file (without ``.rst``) into backquotes:
+  ``:doc:`/src/path/to_the_rst_file``` e.g.
+  :doc:`/src/sphinx_tutorial/file_organisation`
+
+  - We can rename the link as ``LINK NAME`` with the same pattern as external URLs:
+    ``:doc:`LINK NAME &lt;/src/path/to_the_rst_file&gt;``` e.g. :doc:`File structure
+    &lt;/src/sphinx_tutorial/file_organisation&gt;`
+
+  - .. attention::
+
+    For ``:doc:`` role, the link to e.g. ``file_organisation.rst`` has to start by an
+    absolute path starting with a slash ``/src/sphinx_tutorial/...`` and should not
+    have the ``.rst`` extention
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="links-to-a-specific-chapter-with-ref">
+<h3>Links to a specific Chapter with :ref:<a class="headerlink" href="#links-to-a-specific-chapter-with-ref" title="Permalink to this heading">#</a></h3>
+<div class="tab-set docutils container">
+<input checked="True" class="tab-input" id="tab-set--6-input--1" name="tab-set--6" type="radio"><label class="tab-label" for="tab-set--6-input--1">Links to a specific chapter</label><div class="tab-content docutils container">
+<ul>
+<li><p>To <strong>link to some specific chapter</strong> use the <code class="docutils literal notranslate"><span class="pre">:ref:</span></code> role followed by
+<em>PATH/TO/RST_FILE:Chapter title</em> into backquotes:
+<code class="docutils literal notranslate"><span class="pre">:ref:`src/path/rst_file:Chapter</span> <span class="pre">name`</span></code> e.g.
+<a class="reference internal" href="#some-maths"><span class="std std-ref">Some maths</span></a></p>
+<ul>
+<li><div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>For <code class="docutils literal notranslate"><span class="pre">:ref:</span></code> role the path should not start with <code class="docutils literal notranslate"><span class="pre">/</span></code>, we write
+<code class="docutils literal notranslate"><span class="pre">src/sphinx_tutorial</span></code> not <code class="docutils literal notranslate"><span class="pre">/src/sphinx_tutorial</span></code></p>
+</div>
+</li>
+<li><p>If you want to name the link replace the <code class="docutils literal notranslate"><span class="pre">PATH/TO/RST_FILE:chapter_name</span></code> with
+<code class="docutils literal notranslate"><span class="pre">LINK</span> <span class="pre">NAME</span> <span class="pre">&lt;PATH/TO/RST_FILE:Chapter</span> <span class="pre">name&gt;</span></code> e.g. <a class="reference internal" href="#some-maths"><span class="std std-ref">Math exemples</span></a> or <code class="docutils literal notranslate"><span class="pre">:ref:`link</span> <span class="pre">to</span> <span class="pre">Main</span> <span class="pre">index</span> <span class="pre">file</span>
+<span class="pre">in</span> <span class="pre">file_organisation</span> <span class="pre">&lt;docs/sphinx_quickstart/file_organisation:Main</span> <span class="pre">index.rst</span> <span class="pre">file&gt;`</span></code></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<input class="tab-input" id="tab-set--6-input--2" name="tab-set--6" type="radio"><label class="tab-label" for="tab-set--6-input--2">Links to specific chapter – code</label><div class="tab-content docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- To **link to some specific chapter** use the ``:ref:`` role followed by
+  *PATH/TO/RST_FILE:Chapter title* into backquotes:
+  ``:ref:`src/path/rst_file:Chapter name``` e.g.
+  :ref:`docs/sphinx_quickstart/wiki_syntax_demo:Some maths`
+
+  - .. warning::
+
+      For ``:ref:`` role the path should not start with ``/``, we write
+      ``src/sphinx_tutorial`` not ``/src/sphinx_tutorial``
+
+  - If you want to name the link replace the ``PATH/TO/RST_FILE:chapter_name`` with
+    ``LINK NAME &lt;PATH/TO/RST_FILE:Chapter name&gt;`` e.g. :ref:`Math exemples
+    &lt;docs/sphinx_quickstart/wiki_syntax_demo:Some maths&gt;` or :ref:`link to Main index file
+    in file_organisation &lt;docs/sphinx_quickstart/file_organisation:Main index.rst file&gt;`
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>Sphinx can be used with <a class="reference external" href="https://spec.commonmark.org/0.30">markdown</a> too but is
+not recomendend neither as powerfull as restructuredtext is.</p></li>
+</ul>
+</div>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="sphinx_quickstart.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Sphinx Intro</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="file_organisation.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Files organisation</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paragraphs-and-notes">Paragraphs and notes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tabs-images-and-code">tabs images and code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tables">Tables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#some-maths">Some maths</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#links">Links</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#external-links">External Links</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#links-to-rst-with-doc">Links to rst with :doc:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#links-to-a-specific-chapter-with-ref">Links to a specific Chapter with :ref:</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Cao Tri DO
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023, Cao Tri DO.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
